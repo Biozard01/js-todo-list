@@ -1,0 +1,19 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #ccc;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.page {
+  width: 70%;
+  margin: auto;
+  padding: 64px;
+  background-color: #fff;
+  min-height: 100%;
+  box-sizing: border-box;
+}
