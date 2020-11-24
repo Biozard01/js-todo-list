@@ -82,8 +82,19 @@ const renderTask = (task) => {
   title.setAttribute("for", `checkbox_${task.id}`);
   title.style.textDecoration = task.isCompleted ? "line-through" : "";
   li.appendChild(title);
+  const desc = document.createElement("label");
+  desc.innerText = task.details;
+  desc.setAttribute("for", `checkbox_${task.id}`);
+  desc.style.textDecoration = task.isCompleted ? "line-through" : "";
+  li.appendChild(desc);
+  const dueto = document.createElement("label");
+  dueto.innerText = task.due;
+  dueto.setAttribute("for", `checkbox_${task.id}`);
+  dueto.style.textDecoration = task.isCompleted ? "line-through" : "";
+  li.appendChild(dueto);
+
   checkbox.addEventListener("change", (evt) =>
-    checkboxChanged(evt.target.checked, task.id, title, checkbox)
+    checkboxChanged(evt.target.checked, task.id, title, desc, dueto, checkbox)
   );
   const deleteButton = document.createElement("a");
   deleteButton.href = "javascript:void(0)";
@@ -109,7 +120,10 @@ const refreshOrder = () => {
 
 const addTask = () => {
   const title = document.getElementById("task-title").value;
-  createTask(title, ourListId)
+  const desc = document.getElementById("task-desc").value;
+  const dueto = document.getElementById("task-due").value;
+
+  createTask(title, desc, dueto, ourListId)
     .then((result) => {
       const newTask = result.data;
       ourTasks.push(newTask);
@@ -117,6 +131,8 @@ const addTask = () => {
       showPanel("tasks-list");
       // Don't forget to reset the input value after creating the task
       document.getElementById("task-title").value = "";
+      document.getElementById("task-desc").value = "";
+      document.getElementById("task-due").value = "";
     })
     .catch((err) => {
       alert("Impossible de créer la tâche !");
