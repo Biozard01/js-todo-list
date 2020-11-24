@@ -122,7 +122,6 @@ const addTask = () => {
   const title = document.getElementById("task-title").value;
   const desc = document.getElementById("task-desc").value;
   const dueto = document.getElementById("task-due").value;
-
   createTask(title, desc, dueto, ourListId)
     .then((result) => {
       const newTask = result.data;
