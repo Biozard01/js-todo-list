@@ -91,6 +91,11 @@ const renderTask = (task) => {
   dueto.innerText = task.due;
   dueto.setAttribute("for", `checkbox_${task.id}`);
   dueto.style.textDecoration = task.isCompleted ? "line-through" : "";
+
+  if (task.due != Date.now()) {
+    dueto.style.color = "#ff0000";
+  }
+
   li.appendChild(dueto);
 
   checkbox.addEventListener("change", (evt) =>

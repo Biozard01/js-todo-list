@@ -48,10 +48,11 @@ export const deleteList = (listId) =>
     crudfulConfig
   );
 
-export const createList = (title) =>
+export const createList = (title, color) =>
   axios.post(
     "https://todo.crudful.com/lists", {
-      title: title
+      title: title,
+      color: color
     },
     crudfulConfig
   );

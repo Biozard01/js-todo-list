@@ -1,4 +1,8 @@
-import { createList, deleteList, getLists } from "./api.js";
+import {
+  createList,
+  deleteList,
+  getLists
+} from "./api.js";
 
 let ourLists = [];
 
@@ -48,10 +52,13 @@ const renderList = (list) => {
   link.className = "list-link";
   link.innerText = list.title;
   link.href = `#tasks/${list.id}`;
+  link.style.color = list.color;
   li.appendChild(link);
+
   const deleteButton = document.createElement("a");
   deleteButton.href = "javascript:void(0)";
   deleteButton.setAttribute("uk-icon", "trash");
+
   deleteButton.addEventListener("click", () =>
     deleteButtonClicked(list.id, li)
   );
@@ -66,7 +73,9 @@ const refreshOrder = () => {
 
 const addList = () => {
   const title = document.getElementById("list-title").value;
-  createList(title)
+  const color = document.getElementById("list-color").value;
+
+  createList(title, color)
     .then((result) => {
       const newList = result.data;
       ourLists.push(newList);
@@ -74,6 +83,7 @@ const addList = () => {
       showPanel("lists-list");
       // Don't forget to reset the input value after creating the list
       document.getElementById("list-title").value = "";
+      document.getElementById("list-color").value = "";
     })
     .catch((err) => {
       alert("Impossible de créer la liste !");

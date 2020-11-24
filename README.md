@@ -16,4 +16,4 @@
 
 - Modifier le formulaire de création d’une liste en ajoutant un nouveau champ pour cette nouvelle valeur ✖
 
-- Modifier le rendu de la liste des tâches pour afficher la couleur de la liste ✖
+- Modifier le rendu de la liste des tâches pour afficher la couleur de la liste ✔
