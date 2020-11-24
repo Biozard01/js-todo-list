@@ -52,7 +52,7 @@ const renderList = (list) => {
   link.className = "list-link";
   link.innerText = list.title;
   link.href = `#tasks/${list.id}`;
-  link.style.color = list.color;
+  link.style.color = ("#" + list.color);
   li.appendChild(link);
 
   const deleteButton = document.createElement("a");
@@ -73,7 +73,8 @@ const refreshOrder = () => {
 
 const addList = () => {
   const title = document.getElementById("list-title").value;
-  const color = document.getElementById("list-color").value;
+  const colorpick = document.getElementById("list-color").value;
+  const color = colorpick.substring(1);
 
   createList(title, color)
     .then((result) => {
