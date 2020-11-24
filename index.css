@@ -7,6 +7,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  color: #555;
 }
 
 .page {
@@ -16,4 +17,35 @@ body {
   background-color: #fff;
   min-height: 100%;
   box-sizing: border-box;
+}
+
+.tasks-panel,
+.lists-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+#tasks,
+#lists {
+  width: 90%;
+}
+
+#tasks li,
+#lists li {
+  display: flex;
+  align-items: center;
+  margin: 32px 0;
+}
+
+#tasks label,
+#lists .list-link {
+  flex: 1;
+  padding: 0 32px;
+}
+
+#task-title,
+#list-title {
+  margin: 0 32px;
 }
