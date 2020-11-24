@@ -115,9 +115,9 @@ const refreshOrder = () => {
   document.getElementById("tasks").innerText = "";
   const tasks = ourTasks.sort((a, b) => {
     if (a.isCompleted && !b.isCompleted) {
-      return 1;
-    } else {
       return -1;
+    } else {
+      return 1;
     }
   });
   tasks.forEach((task) => renderTask(task));

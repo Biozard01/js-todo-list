@@ -29,3 +29,7 @@
 - Il faut créer une nouvelle fonction dans “api.js”, à vous de choisir la bonne route de l’API à appeler ✖
 
 - Il est possible de faire la même chose pour les listes ✖
+
+## 5. Bonus
+
+- Trier par ordre alphabétique ✖
